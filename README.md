@@ -1,1 +1,3 @@
-panel serve lib_pyvista.py
+```bash
+panel serve ./online-fem/__main__.py
+```
