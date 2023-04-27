@@ -1,3 +1,3 @@
 ```bash
-panel serve ./online-fem/__main__.py
+panel serve ./online-fem/hello-world.py
 ```
