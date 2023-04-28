@@ -46,5 +46,5 @@ plotter.subplot(2, 2)
 plotter.add_mesh(disc, color="tan", show_edges=True)
 plotter.camera.zoom(0.5)
 
-plot = plotter.ren_win
+plot = plotter.render_window
 pn.panel(plot).servable()
