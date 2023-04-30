@@ -25,10 +25,6 @@ display_graph_button = pn.widgets.Button(
 )
 display_graph_button.servable()
 
-blank_hv = hv.Scatter((1, 1))
-graph_pane = pn.pane.HoloViews(blank_hv, visible=False)
-pn.pane.HoloViews(blank_hv, visible=True).servable()
-
 plotter = pv.Plotter()
 cyl = pv.Cylinder()
 plotter.add_mesh(cyl)
