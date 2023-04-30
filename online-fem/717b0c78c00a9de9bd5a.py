@@ -1,5 +1,7 @@
+import holoviews as hv
 import panel as pn
 
+hv.extension("bokeh")
 pn.extension()
 
 filename_input = pn.widgets.TextInput(
@@ -18,3 +20,7 @@ display_graph_button = pn.widgets.Button(
     name="グラフ描画", button_type="primary", disabled=True
 )
 display_graph_button.servable()
+
+blank_hv = hv.Scatter((1, 1))
+graph_pane = pn.pane.HoloViews(blank_hv, visible=False)
+pn.pane.HoloViews(blank_hv, visible=True).servable()
