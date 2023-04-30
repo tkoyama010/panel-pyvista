@@ -8,3 +8,6 @@ filename_input = pn.widgets.TextInput(
 
 filename_input.placeholder = "HogeHoge FugaFuga"
 filename_input.servable()
+
+load_file_button = pn.widgets.Button(name="ファイル読み込み", button_type="primary")
+load_file_button.servable()
