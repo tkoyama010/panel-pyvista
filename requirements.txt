@@ -1,2 +1,2 @@
 panel==0.14.4
-pyvista==0.38.5
+pyvista==0.39.0
