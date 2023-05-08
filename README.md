@@ -1,4 +1,6 @@
-Run the following command and acess http://localhost:5006/hello-world by your browser.
 ```bash
-$ panel serve ./online-fem/hello-world.py
+$ python -m venv .venv
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
+$ python ./online-fem/hello-world.py
 ```
