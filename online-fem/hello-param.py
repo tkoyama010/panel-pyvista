@@ -3,7 +3,7 @@ import param
 import pyvista as pv
 from IPython.display import IFrame
 
-pv.set_plot_theme("document")
+plotter = pv.Plotter(notebook=True)
 
 cyl = pv.Cylinder()
 arrow = pv.Arrow()
@@ -38,7 +38,6 @@ class PyVistaViewer(param.Parameterized):
 
     @param.depends("mesh_name")
     def view(self):
-        plotter = pv.Plotter(notebook=True)
         if self.mesh_name == "cylinder":
             plotter.add_mesh(cyl, color="tan", show_edges=True)
         if self.mesh_name == "arrow":
