@@ -3,7 +3,6 @@ import param
 import pyvista as pv
 from IPython.display import IFrame
 
-
 plotter = pv.Plotter(notebook=True)
 
 cyl = pv.Cylinder()
@@ -19,6 +18,7 @@ disc = pv.Disc()
 
 def handler(viewer, src, **kwargs):
     return IFrame(src, "100%", "1000px")
+
 
 class PyVistaViewer(param.Parameterized):
     mesh_name = param.ObjectSelector(
