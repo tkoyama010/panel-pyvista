@@ -1,5 +1,5 @@
-import param
 import panel as pn
+import param
 import pyvista as pv
 from IPython.display import IFrame
 
@@ -15,13 +15,28 @@ cone = pv.Cone()
 poly = pv.Polygon()
 disc = pv.Disc()
 
+
 def handler(viewer, src, **kwargs):
     return IFrame(src, "100%", "1000px")
 
-class PyVistaViewer(param.Parameterized):
-    mesh = param.ObjectSelector(default='cylinder', objects=['cylinder', 'arrow', 'sphere', "plane", "line", "box", "cone", "poly", "disc"])
 
-    @param.depends('mesh')
+class PyVistaViewer(param.Parameterized):
+    mesh = param.ObjectSelector(
+        default="cylinder",
+        objects=[
+            "cylinder",
+            "arrow",
+            "sphere",
+            "plane",
+            "line",
+            "box",
+            "cone",
+            "poly",
+            "disc",
+        ],
+    )
+
+    @param.depends("mesh")
     def view(self):
         plotter = pv.Plotter(notebook=True)
         if self.mesh == "cylinder":
@@ -48,6 +63,7 @@ class PyVistaViewer(param.Parameterized):
             return_viewer=True,
         )
         return iframe
+
 
 viewer = PyVistaViewer(name="PyVista Viewer")
 
