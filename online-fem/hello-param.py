@@ -21,7 +21,7 @@ def handler(viewer, src, **kwargs):
 
 
 class PyVistaViewer(param.Parameterized):
-    name = param.ObjectSelector(
+    mesh_name = param.ObjectSelector(
         default="cylinder",
         objects=[
             "cylinder",
@@ -36,26 +36,26 @@ class PyVistaViewer(param.Parameterized):
         ],
     )
 
-    @param.depends("name")
+    @param.depends("mesh_name")
     def view(self):
         plotter = pv.Plotter(notebook=True)
-        if self.name == "cylinder":
+        if self.mesh_name == "cylinder":
             plotter.add_mesh(cyl, color="tan", show_edges=True)
-        if self.name == "arrow":
+        if self.mesh_name == "arrow":
             plotter.add_mesh(arrow, color="tan", show_edges=True)
-        if self.name == "sphere":
+        if self.mesh_name == "sphere":
             plotter.add_mesh(sphere, color="tan", show_edges=True)
-        if self.name == "plane":
+        if self.mesh_name == "plane":
             plotter.add_mesh(plane, color="tan", show_edges=True)
-        if self.name == "line":
+        if self.mesh_name == "line":
             plotter.add_mesh(line, color="tan", line_width=3)
-        if self.name == "box":
+        if self.mesh_name == "box":
             plotter.add_mesh(box, color="tan", show_edges=True)
-        if self.name == "cone":
+        if self.mesh_name == "cone":
             plotter.add_mesh(cone, color="tan", show_edges=True)
-        if self.name == "poly":
+        if self.mesh_name == "poly":
             plotter.add_mesh(poly, color="tan", show_edges=True)
-        if self.name == "disc":
+        if self.mesh_name == "disc":
             plotter.add_mesh(disc, color="tan", show_edges=True)
         iframe = plotter.show(
             jupyter_backend="trame",
