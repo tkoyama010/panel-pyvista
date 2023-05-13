@@ -38,6 +38,7 @@ class PyVistaViewer(param.Parameterized):
 
     @param.depends("mesh_name")
     def view(self):
+        plotter.clear()
         if self.mesh_name == "cylinder":
             plotter.add_mesh(cyl, color="tan", show_edges=True)
         if self.mesh_name == "arrow":
