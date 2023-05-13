@@ -24,7 +24,6 @@ class PyVistaViewer(param.Parameterized):
         ],
     )
     plotter = pv.Plotter(notebook=True)
-
     mesh = {
         "cylinder": pv.Cylinder(),
         "arrow": pv.Arrow(),
