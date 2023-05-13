@@ -9,7 +9,6 @@ z = np.sin(r)
 
 # Create and structured surface
 grid = pv.StructuredGrid(x, y, z)
-grid.plot()
 
 # Create a plotter object and set the scalars to the Z height
 plotter = pv.Plotter(notebook=False, off_screen=False)
@@ -23,20 +22,20 @@ plotter.add_mesh(
 )
 
 # Open a gif
-plotter.open_gif("wave.gif")
+plotter.show(interactive_update=True)
 
 pts = grid.points.copy()
 
 # Update Z and write a frame for each updated position
-nframe = 15
-for phase in np.linspace(0, 2 * np.pi, nframe + 1)[:nframe]:
+nframe = 150
+for phase in np.linspace(0, 10 * np.pi, nframe + 1)[:nframe]:
     z = np.sin(r + phase)
     pts[:, -1] = z.ravel()
     plotter.update_coordinates(pts, render=False)
     plotter.update_scalars(z.ravel(), render=False)
 
     # Write a frame. This triggers a render.
-    plotter.write_frame()
+    plotter.update()
 
 # Closes and finalizes movie
 plotter.close()
