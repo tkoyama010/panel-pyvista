@@ -29,6 +29,7 @@ class PyVistaViewer(param.Parameterized):
         scalar_bar_args={"title": "Height"},
         clim=[-1, 1],
     )
+    plotter.add_text("0 step", name="title", position="upper_right", render=False)
     nframe = 150
     step = param.Integer(default=1, bounds=(0, nframe))
 
@@ -36,6 +37,10 @@ class PyVistaViewer(param.Parameterized):
 
     @param.depends("step")
     def view(self):
+        self.plotter.remove_actor("title", render=False)
+        self.plotter.add_text(
+            str(self.step) + "step", name="title", render=False, position="upper_right"
+        )
         pts = self.grid.points.copy()
 
         # Update Z and write a frame for each updated position
