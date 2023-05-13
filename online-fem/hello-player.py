@@ -57,9 +57,13 @@ class PyVistaViewer(param.Parameterized):
 
 
 viewer = PyVistaViewer(name="PyVista Viewer")
+player = pn.widgets.Player(name="Player", start=0, end=150, value=0, loop_policy="once")
 
 pn.extension()
 pn.Column(
-    pn.Param(viewer.param, widgets={"step": pn.widgets.Player}),
-    pn.panel(viewer.view, width=1000),
+    pn.Row(
+        player.controls(jslink=True),
+        pn.panel(viewer.view, width=1000),
+    ),
+    pn.Param(viewer.param, widgets={"step": player}),
 ).show()
