@@ -12,7 +12,7 @@ grid = pv.StructuredGrid(x, y, z)
 grid.plot()
 
 # Create a plotter object and set the scalars to the Z height
-plotter = pv.Plotter(notebook=False, off_screen=True)
+plotter = pv.Plotter(notebook=False, off_screen=False)
 plotter.add_mesh(
     grid,
     scalars=z.ravel(),
