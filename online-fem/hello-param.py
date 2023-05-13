@@ -23,6 +23,7 @@ class PyVistaViewer(param.Parameterized):
             "disc",
         ],
     )
+    line_width = param.Number(default=1, bounds=(0, 10))
     plotter = pv.Plotter(notebook=True)
     mesh = {
         "cylinder": pv.Cylinder(),
@@ -36,10 +37,15 @@ class PyVistaViewer(param.Parameterized):
         "disc": pv.Disc(),
     }
 
-    @param.depends("mesh_name")
+    @param.depends("mesh_name", "line_width")
     def view(self):
         self.plotter.clear()
-        self.plotter.add_mesh(self.mesh[self.mesh_name], color="tan", show_edges=True)
+        self.plotter.add_mesh(
+            self.mesh[self.mesh_name],
+            color="tan",
+            show_edges=True,
+            line_width=self.line_width,
+        )
         iframe = self.plotter.show(
             jupyter_backend="trame",
             jupyter_kwargs=dict(handler=handler),
