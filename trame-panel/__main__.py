@@ -4,7 +4,7 @@ import pyvista as pv
 from IPython.display import IFrame
 
 
-class Plotter(param.Parameterized):
+class Viewer(param.Parameterized):
     mesh_name = param.ObjectSelector(
         default="cylinder",
         objects=[
@@ -20,7 +20,7 @@ class Plotter(param.Parameterized):
         ],
     )
     line_width = param.Number(default=1, bounds=(0, 10))
-    plotter = pv.Plotter(notebook=True)
+    plotter = pv.Viewer(notebook=True)
     mesh = {
         "cylinder": pv.Cylinder(),
         "arrow": pv.Arrow(),
@@ -38,7 +38,7 @@ class Plotter(param.Parameterized):
         return IFrame(src, "100%", "1000px")
 
     @param.depends("mesh_name", "line_width")
-    def show(self):
+    def view(self):
         self.plotter.clear()
         self.plotter.add_mesh(
             self.mesh[self.mesh_name],
@@ -54,7 +54,7 @@ class Plotter(param.Parameterized):
         return iframe
 
 
-plotter = Plotter(name="Plotter")
+viewer = Viewer(name="Viewer")
 
 pn.extension()
-pn.Row(plotter.param, pn.panel(plotter.show(), width=1000)).show()
+pn.Row(viewer.param, pn.panel(viewer.view, width=1000)).show()
