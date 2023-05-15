@@ -1,6 +1,6 @@
-# Serve Finite Element Method in browser
+# Trame :heart: Panel
 
-The goal of this project is to provide a Finite Element Method that can be used in the browser.
+The goal of this project is to provide a full suport of vtk in [panel](https://panel.holoviz.org/) using [trame](https://kitware.github.io/trame/index.html).
 
 ```bash
 $ python -m venv .venv
