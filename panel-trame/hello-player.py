@@ -40,6 +40,7 @@ class PyVistaViewer(param.Parameterized):
         self.plotter.add_text(
             str(self.step) + "step", name="title", render=False, position="upper_right"
         )
+ 
         pts = self.grid.points.copy()
 
         # Update Z and write a frame for each updated position
