@@ -1,7 +1,5 @@
 import panel as pn
-
 import pyvista as pv
-
 from IPython.display import IFrame
 
 pv.set_plot_theme("document")
@@ -68,18 +66,15 @@ plotter.subplot(2, 2)
 
 plotter.add_mesh(disc, color="tan", show_edges=True)
 
-def handler(viewer, src, **kwargs):
 
+def handler(viewer, src, **kwargs):
     return IFrame(src, "100%", "1000px")
 
+
 iframe = plotter.show(
-
     jupyter_backend="trame",
-
     jupyter_kwargs=dict(handler=handler),
-
     return_viewer=True,
-
 )
 
 pn.extension()
