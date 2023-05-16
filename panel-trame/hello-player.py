@@ -32,6 +32,7 @@ class PyVistaViewer(param.Parameterized):
     plotter.add_text("0 step", name="title", position="upper_right", render=False)
     nframe = 150
     step = param.Integer(default=1, bounds=(0, nframe))
+
     value = np.linspace(0, 10 * np.pi, nframe + 1)
 
     @param.depends("step")
