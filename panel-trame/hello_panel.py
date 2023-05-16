@@ -14,6 +14,7 @@ cone = pv.Cone()
 poly = pv.Polygon()
 disc = pv.Disc()
 
+
 plotter = pv.Plotter(shape=(3, 3), notebook=True)
 
 # Top row
@@ -41,6 +42,7 @@ plotter.subplot(2, 1)
 plotter.add_mesh(poly, color="tan", show_edges=True)
 plotter.subplot(2, 2)
 plotter.add_mesh(disc, color="tan", show_edges=True)
+
 
 def handler(viewer, src, **kwargs):
     return IFrame(src, "100%", "1000px")
