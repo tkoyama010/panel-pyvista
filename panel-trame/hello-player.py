@@ -41,7 +41,6 @@ class PyVistaViewer(param.Parameterized):
         self.plotter.add_text(
             str(self.step) + "step", name="title", render=False, position="upper_right"
         )
- 
         pts = self.grid.points.copy()
 
         # Update Z and write a frame for each updated position
@@ -52,7 +51,6 @@ class PyVistaViewer(param.Parameterized):
 
         # Write a frame. This triggers a render.
         # self.plotter.update()
-
         # Open a gif
         iframe = self.plotter.show(
             jupyter_backend="trame",
@@ -64,11 +62,9 @@ class PyVistaViewer(param.Parameterized):
 
 
 viewer = PyVistaViewer(name="PyVista Viewer")
-
 player = pn.widgets.Player(name="Player", start=0, end=150, value=0, loop_policy="once")
 
 pn.extension()
-
 pn.Column(
     pn.Row(
         player.controls(jslink=True),
