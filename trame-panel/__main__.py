@@ -33,7 +33,6 @@ class Viewer(param.Parameterized):
         "disc": pv.Disc(),
     }
 
-
     def handler(self, viewer, src, **kwargs):
         return IFrame(src, "100%", "1000px")
 
