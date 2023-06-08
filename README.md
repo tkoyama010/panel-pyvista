@@ -1,4 +1,4 @@
-# Panel :fist_right::fist_left: Trame
+# Panel :fist_right::fist_left: PyVista :fist_right::fist_left: Trame
 
 The goal of this project is to provide a full suport of vtk in [panel](https://panel.holoviz.org/) using [trame](https://kitware.github.io/trame/index.html).
 
