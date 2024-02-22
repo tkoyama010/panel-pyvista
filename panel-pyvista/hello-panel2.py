@@ -40,7 +40,7 @@ plotter.add_mesh(disc, color="tan", show_edges=True)
 
 
 def handler(viewer, src, **kwargs):
-    return IFrame(src, "100%", "1000px")
+    return IFrame(src, "200%", "1000px")
 
 
 iframe = plotter.show(
@@ -48,8 +48,6 @@ iframe = plotter.show(
     jupyter_kwargs=dict(handler=handler),
     return_viewer=True,
 )
-
-print(iframe.src)
 
 pn.extension()
 pn.panel(iframe, width=1000).show()
