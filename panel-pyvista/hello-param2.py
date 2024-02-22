@@ -6,7 +6,7 @@ from IPython.display import IFrame
 pn.extension(template="fast")
 
 def handler(viewer, src, **kwargs):
-    return IFrame(src, "500%", "1000px")
+    return IFrame(src, width="1450", height="750")
 
 
 class PyVistaViewer(param.Parameterized):
